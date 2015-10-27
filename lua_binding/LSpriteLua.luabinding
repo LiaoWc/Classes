@@ -1,0 +1,9 @@
+$#include "LSprite.hpp"
+
+class LSprite:public LNode
+{
+	LSprite(char* image);
+	void setPosition(float x,float y);
+	void setParent(cocos2d::Node* n);
+  	void setWithJson(char* json);
+};
