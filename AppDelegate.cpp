@@ -3,9 +3,12 @@
 //#include "SceneEditor.hpp"
 //#include "BlendEditor.hpp"
 //#include "Level1Scene.h"
-#include "LuaTestScene.hpp"
+//#include "LuaTestScene.hpp"
 
-
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
+	#pragma comment(lib,"lua.lib")
+	#pragma comment(lib,"tolualib.lib")
+#endif
 #include "lua.hpp"
 extern "C" {
 #include "lua.h"
@@ -83,8 +86,8 @@ bool AppDelegate::applicationDidFinishLaunching() {
 //    Director::getInstance()->getConsole()->setBindAddress("127.0.0.1");
 //    Director::getInstance()->getConsole()->listenOnTCP(9001);
     
-    FileUtils::getInstance()->addSearchPath("/Users/liao/Documents/Cocos2d-x/LuaProject/ZhuZi/images");
-    FileUtils::getInstance()->addSearchPath("/Users/liao/Documents/Cocos2d-x/LuaProject/ZhuZi/scripts");
+    //FileUtils::getInstance()->addSearchPath("/Users/liao/Documents/Cocos2d-x/LuaProject/ZhuZi/images");
+    //FileUtils::getInstance()->addSearchPath("/Users/liao/Documents/Cocos2d-x/LuaProject/ZhuZi/scripts");
 
     
     
@@ -110,10 +113,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     tolua_LSpriteLua_open(lua_state);
     tolua_LWindowLua_open(lua_state);
     
-    std::string scriptPath = FileUtils::getInstance()->fullPathForFilename("hello.lua");
-    
-    //    int status = luaL_loadfile(lua_state, scriptPath.c_str());
-    //    lua_register(lua_state, "average", average);
+    std::string scriptPath = FileUtils::getInstance()->fullPathForFilename("scripts/hello.lua");
     
     luaL_dofile(lua_state, scriptPath.c_str());
     
