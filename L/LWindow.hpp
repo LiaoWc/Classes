@@ -33,10 +33,7 @@ public:
     void setAnimationInterval(float f);
     //设置设计尺寸
     void setDesignResolutionSize(float width ,float height,int resolutionPolicy);
-    
-    //设置运行场景
-    void runWithScene(cocos2d::Scene* s);
-    
+        
     static Scene* getRunningScene();
 private:
     LWindow();

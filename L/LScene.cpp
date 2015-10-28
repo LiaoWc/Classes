@@ -26,3 +26,7 @@ void LScene::run(){
 void LScene::addChild(LSprite * s){
     m_scene->addChild(s->getSprite());
 }
+
+void LScene::setCallBack(LuaFunction* func){
+    
+}

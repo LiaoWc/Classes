@@ -66,9 +66,6 @@ void LWindow::setAnimationInterval(float f){
 void LWindow::setDesignResolutionSize(float width ,float height,int r){
     Director::getInstance()->getOpenGLView()->setDesignResolutionSize(width,height,ResolutionPolicy(r));
 };
-void LWindow::runWithScene(cocos2d::Scene *s){
-    Director::getInstance()->runWithScene(s);
-}
 Scene* LWindow::getRunningScene(){
     return Director::getInstance()->getRunningScene();
 }

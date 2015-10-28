@@ -7,9 +7,6 @@ class LWindow
 	float getWidth();
     //获取高度
     float getHeight();
-
-     //获取运行场景
-    Scene* getRunningScene();
     
     //按尺寸初始化窗口
     void initWindowWithSize(float width,float height);
@@ -22,9 +19,4 @@ class LWindow
     void setAnimationInterval(float f);
     //设置设计尺寸
     void setDesignResolutionSize(float width ,float height,int resolutionPolicy);
-    
-    //设置运行场景
-    static void runWithScene(cocos2d::Scene* s);
-
-
 };

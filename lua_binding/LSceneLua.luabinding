@@ -1,0 +1,9 @@
+$#include "LScene.hpp"
+
+class LScene
+{
+	LScene();
+
+ 	void run();
+    void addChild(LSprite * s);
+};

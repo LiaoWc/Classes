@@ -13,6 +13,7 @@
 USING_NS_CC;
 
 #include "LSprite.hpp"
+#include "LuaFunction.hpp"
 
 class LScene
 {
@@ -21,6 +22,7 @@ public:
     ~LScene();
     void run();
     void addChild(LSprite * s);
+    void setCallBack(LuaFunction* func);
 private:
     Scene* m_scene;
 };

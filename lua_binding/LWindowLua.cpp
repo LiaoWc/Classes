@@ -24,8 +24,6 @@ LUALIB_API int luaopen_LWindowLua (lua_State* tolua_S);
 static void tolua_reg_types (lua_State* tolua_S)
 {
  tolua_usertype(tolua_S,"LWindow");
- tolua_usertype(tolua_S,"Scene");
- tolua_usertype(tolua_S,"cocos2d::Scene");
 }
 
 /* method: getInstance of class  LWindow */
@@ -110,36 +108,6 @@ static int tolua_LWindowLua_LWindow_getHeight00(lua_State* tolua_S)
 #ifndef TOLUA_RELEASE
  tolua_lerror:
  tolua_error(tolua_S,"#ferror in function 'getHeight'.",&tolua_err);
- return 0;
-#endif
-}
-
-/* method: getRunningScene of class  LWindow */
-static int tolua_LWindowLua_LWindow_getRunningScene00(lua_State* tolua_S)
-{
-#ifndef TOLUA_RELEASE
- tolua_Error tolua_err;
- if (
- !tolua_isusertype(tolua_S,1,"LWindow",0,&tolua_err) || 
- !tolua_isnoobj(tolua_S,2,&tolua_err)
- )
- goto tolua_lerror;
- else
-#endif
- {
-  LWindow* self = (LWindow*)  tolua_tousertype(tolua_S,1,0);
-#ifndef TOLUA_RELEASE
- if (!self) tolua_error(tolua_S,"invalid 'self' in function 'getRunningScene'",NULL);
-#endif
- {
-  Scene* tolua_ret = (Scene*)  self->getRunningScene();
- tolua_pushusertype(tolua_S,(void*)tolua_ret,"Scene");
- }
- }
- return 1;
-#ifndef TOLUA_RELEASE
- tolua_lerror:
- tolua_error(tolua_S,"#ferror in function 'getRunningScene'.",&tolua_err);
  return 0;
 #endif
 }
@@ -303,37 +271,6 @@ static int tolua_LWindowLua_LWindow_setDesignResolutionSize00(lua_State* tolua_S
 #endif
 }
 
-/* method: runWithScene of class  LWindow */
-static int tolua_LWindowLua_LWindow_runWithScene00(lua_State* tolua_S)
-{
-#ifndef TOLUA_RELEASE
- tolua_Error tolua_err;
- if (
- !tolua_isusertype(tolua_S,1,"LWindow",0,&tolua_err) || 
- !tolua_isusertype(tolua_S,2,"cocos2d::Scene",0,&tolua_err) || 
- !tolua_isnoobj(tolua_S,3,&tolua_err)
- )
- goto tolua_lerror;
- else
-#endif
- {
-  LWindow* self = (LWindow*)  tolua_tousertype(tolua_S,1,0);
-  cocos2d::Scene* s = ((cocos2d::Scene*)  tolua_tousertype(tolua_S,2,0));
-#ifndef TOLUA_RELEASE
- if (!self) tolua_error(tolua_S,"invalid 'self' in function 'runWithScene'",NULL);
-#endif
- {
-  self->runWithScene(s);
- }
- }
- return 0;
-#ifndef TOLUA_RELEASE
- tolua_lerror:
- tolua_error(tolua_S,"#ferror in function 'runWithScene'.",&tolua_err);
- return 0;
-#endif
-}
-
 /* Open lib function */
 LUALIB_API int luaopen_LWindowLua (lua_State* tolua_S)
 {
@@ -346,13 +283,11 @@ LUALIB_API int luaopen_LWindowLua (lua_State* tolua_S)
  tolua_function(tolua_S,"getInstance",tolua_LWindowLua_LWindow_getInstance00);
  tolua_function(tolua_S,"getWidth",tolua_LWindowLua_LWindow_getWidth00);
  tolua_function(tolua_S,"getHeight",tolua_LWindowLua_LWindow_getHeight00);
- tolua_function(tolua_S,"getRunningScene",tolua_LWindowLua_LWindow_getRunningScene00);
  tolua_function(tolua_S,"initWindowWithSize",tolua_LWindowLua_LWindow_initWindowWithSize00);
  tolua_function(tolua_S,"initWindowWithFullScreen",tolua_LWindowLua_LWindow_initWindowWithFullScreen00);
  tolua_function(tolua_S,"setDisplayStats",tolua_LWindowLua_LWindow_setDisplayStats00);
  tolua_function(tolua_S,"setAnimationInterval",tolua_LWindowLua_LWindow_setAnimationInterval00);
  tolua_function(tolua_S,"setDesignResolutionSize",tolua_LWindowLua_LWindow_setDesignResolutionSize00);
- tolua_function(tolua_S,"runWithScene",tolua_LWindowLua_LWindow_runWithScene00);
  tolua_endmodule(tolua_S);
  tolua_endmodule(tolua_S);
  return 1;

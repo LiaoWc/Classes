@@ -1,0 +1,9 @@
+$#include "LuaFunction.hpp"
+
+class LuaFunction
+{
+	LuaFunction();
+
+ 	void registerValue();
+ 	 void Call();
+};

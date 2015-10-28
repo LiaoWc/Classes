@@ -1,0 +1,7 @@
+tolua -o LSpriteLua.cpp LSpriteLua.luabinding
+
+tolua -o LWindowLua.cpp LWindowLua.luabinding
+
+tolua -o LSceneLua.cpp LSceneLua.luabinding
+
+tolua -o LSceneLua.cpp LSceneLua.luabinding
